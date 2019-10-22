@@ -9,8 +9,7 @@
 <body>
 	<h4>Primer contains funkcije</h4>
 	<c:set var="theString" value="I am a test String" />
-	<p>Test recenica je: ${ theString}
-	<p>
+	<p>Test recenica je: ${ theString}</p>
 		<c:if test="${fn:contains(theString, 'test')}">
 			<p>Recenica sadrzi rec test</p>
 
