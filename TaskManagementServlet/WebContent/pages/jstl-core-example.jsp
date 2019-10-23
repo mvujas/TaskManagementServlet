@@ -10,10 +10,14 @@
 	<h4>Kreiranje tabele pomocu forEach taga</h4>
 	<c:set var="listaKorisnika" value="${{'Ana','Marko','Jovan','Sanja'}}" />
 	<table border="1">
-	<tr><th>Ime</th></tr>
-    <c:forEach items = "${listaKorisnika}" var="k">
-     <tr><td>${k}</td></tr>
-      </c:forEach>
-      </table>
+		<tr>
+			<th>Ime</th>
+		</tr>
+		<c:forEach items="${listaKorisnika}" var="k">
+			<tr>
+				<td>${k}</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

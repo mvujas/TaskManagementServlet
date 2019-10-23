@@ -1,6 +1,8 @@
 package dmi.ris.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +35,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   User u = UserController.getLastUser();
-		response.getWriter().append("Poslednji korisnik je ").append(u.getName());
+	   response.getWriter().append("Poslednji korisnik je ").append(u.getName());  	  
 	}
 
 	/**
@@ -48,11 +50,14 @@ public class UserServlet extends HttpServlet {
 	  Role r = UserController.getRole(idRole);
 	  u.setRole(r);
 	  boolean ok = UserController.register(u);
-	  if (ok) {
-		  response.getWriter().append("Uspesno je registrovan korisnik");
+	  if(ok) {
+		  List<User> users = UserController.getAllUsers();
+		  request.setAttribute("users" , users); 
+		  request.setAttribute("message" , "Uspešno je registrovan korisnik!"); 
 	  }else {
-		  response.getWriter().append("Doslo je do greske");
+		  request.setAttribute("message" , "Došlo je do greške."); 
 	  }
+	  request.getRequestDispatcher("/pages/registerUser.jsp").forward(request,response);
 	  
 	}
 
