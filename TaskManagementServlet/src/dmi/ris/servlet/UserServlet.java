@@ -34,8 +34,14 @@ public class UserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   User u = UserController.getLastUser();
-	   response.getWriter().append("Poslednji korisnik je ").append(u.getName());  	  
+		if (request.getParameter("action")!=null && request.getParameter("action").equalsIgnoreCase("delete")) {
+			  int id = Integer.parseInt(request.getParameter("userId"));
+		       UserController.delete(id);
+		}
+		List<User> users = UserController.getAllUsers();
+		  request.setAttribute("users" , users);  
+		  request.getRequestDispatcher("/pages/registerUser.jsp").forward(request,response);
+			
 	}
 
 	/**
@@ -60,5 +66,7 @@ public class UserServlet extends HttpServlet {
 	  request.getRequestDispatcher("/pages/registerUser.jsp").forward(request,response);
 	  
 	}
+
+	
 
 }
