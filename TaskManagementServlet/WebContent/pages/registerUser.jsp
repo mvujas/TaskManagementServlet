@@ -30,7 +30,9 @@
 									<td>${u.name}</td>
 									<td>${u.username}</td>
 									<td>${u.role.name}</td>
-									<td><a href="http://localhost:8080/TaskManagementServlet/UserServlet?action=delete&userId=${u.idUser}" ><i class="fas fa-trash-alt red-text"></a></td>
+									<td><a
+										href="http://localhost:8080/TaskManagementServlet/UserServlet?action=delete&userId=${u.idUser}"><i
+											class="fas fa-trash-alt red-text"></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -41,49 +43,50 @@
 	</div>
 	<div class="row pt-5">
 		<div class="col">
-					<form action="/TaskManagementServlet/UserServlet" method="post">
-						<fieldset>
-							<h5>Registracija novog korisnika</h5>
-							<div class="form-group row">
-								<label for="ime" class="col-sm-2 col-form-label">Ime:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="ime" name="name">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="username" class="col-sm-2 col-form-label">Korisničko
-									ime:</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="username"
-										name="username">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="password" class="col-sm-2 col-form-label">Lozinka:</label>
-								<div class="col-sm-10">
-									<input type="password" name="password" class="form-control" >
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="exampleSelect1" class="col-sm-2 col-form-label">Uloga:</label>
-								<div class="col-sm-10">
-									<select name="role" class="browser-default custom-select" id="exampleSelect1">
-										<option value="1">MANAGER</option>
-										<option value="2">EMPLOYEE</option>
-									</select>
-								</div>
-							</div>
-							<button type="submit" class="btn btn-default">Dodaj</button>
-						</fieldset>
-					</form>
+			<form action="/TaskManagementServlet/UserServlet" method="post">
+				<fieldset>
+					<h5>Registracija novog korisnika</h5>
+					<div class="form-group row">
+						<label for="ime" class="col-sm-2 col-form-label">Ime:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="ime" name="name">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="username" class="col-sm-2 col-form-label">Korisničko
+							ime:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="username"
+								name="username">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="password" class="col-sm-2 col-form-label">Lozinka:</label>
+						<div class="col-sm-10">
+							<input type="password" name="password" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="exampleSelect1" class="col-sm-2 col-form-label">Uloga:</label>
+						<div class="col-sm-10">
+							<select name="role" class="browser-default custom-select"
+								id="exampleSelect1">
+								<option value="1">MANAGER</option>
+								<option value="2">EMPLOYEE</option>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-default">Dodaj</button>
+				</fieldset>
+			</form>
 			<c:if test="${not empty message}">
 				<blockquote class="blockquote bq-success">
 					<p class="bq-title">${message}</p>
 				</blockquote>
 			</c:if>
 		</div>
-				<div class="col"></div>
-			</div>		
-		</div>
+		<div class="col"></div>
+	</div>
+</div>
 </body>
 </html>

@@ -22,8 +22,7 @@ public class SessionListenerLoginCounter implements HttpSessionListener, HttpSes
 
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent se) {
-		User u=(User)se.getValue(); 
-		System.out.println("izlogovao se korisnik " +u.getName()); 
+
 	}
 
 	@Override
