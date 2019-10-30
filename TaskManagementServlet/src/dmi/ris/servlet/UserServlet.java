@@ -41,13 +41,14 @@ public class UserServlet extends HttpServlet {
 		List<User> users = UserController.getAllUsers();
 		  request.setAttribute("users" , users);  
 		  request.getRequestDispatcher("/pages/registerUser.jsp").forward(request,response);
-			
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	  User u = new User();
 	  u.setName(request.getParameter("name"));
 	  u.setUsername(request.getParameter("username"));
@@ -61,12 +62,9 @@ public class UserServlet extends HttpServlet {
 		  request.setAttribute("users" , users); 
 		  request.setAttribute("message" , "Uspešno je registrovan korisnik!"); 
 	  }else {
-		  request.setAttribute("message" , "Došlo je do greške."); 
+		  request.setAttribute("message" , "Već postoji uneto korisnicko ime."); 
 	  }
 	  request.getRequestDispatcher("/pages/registerUser.jsp").forward(request,response);
-	  
 	}
-
-	
 
 }

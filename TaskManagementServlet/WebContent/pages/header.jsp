@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
+   <script src="/TaskManagementServlet/js/jquery-3.4.1.min.js"></script>
+    <script src="/TaskManagementServlet/js/bootstrap.min.js"></script> 
+   <script src="/TaskManagementServlet/js/mdb.min.js"></script> 
 <meta charset="UTF-8">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -28,7 +32,9 @@
   <div class="collapse navbar-collapse" id="basicExampleNav">
 
     <!-- Links -->
+     
     <ul class="navbar-nav mr-auto">
+    <c:if test="${not empty logedUser}">
       <li class="nav-item ">
         <a class="nav-link" href="/TaskManagementServlet/pages/home.jsp">Home
         </a>
@@ -39,16 +45,25 @@
       <li class="nav-item">
         <a class="nav-link" href="http://localhost:8080/TaskManagementServlet/UserServlet">Radnici</a>
       </li>
-
+ </c:if>
     </ul>
+   
     <!-- Links -->
-
   <span class="navbar-text white-text">
-     <a class="nav-link" href="#">Login</a>
+  <c:choose>
+  <c:when test="${empty logedUser}">
+     <a href="/TaskManagementServlet/login.jsp" class="nav-link">Prijava</a>
+   </c:when>
+   <c:otherwise>
+     <a href="http://localhost:8080/TaskManagementServlet/LoginServlet?action=logout" class="nav-link" >Odjava</a>
+   </c:otherwise>
+     </c:choose>
     </span>
   </div>
   <!-- Collapsible content -->
 
 </nav> 
+
+<!-- MODAL -->
 
 </html>

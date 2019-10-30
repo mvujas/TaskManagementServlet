@@ -5,14 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="/TaskManagementServlet/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="/TaskManagementServlet/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="/TaskManagementServlet/css/style.css" rel="stylesheet">
 <title>Korisnici</title>
 </head>
 <%@include file="header.jsp"%>
